@@ -2,6 +2,7 @@
 set -e
 
 sed -i "/^};$/i \\\tforwarders { ${FORWARDERS} };" /etc/bind/named.conf.options
+sed -i "/^};$/i \\\tallow-query { ${ALLOW_QUERY} };" /etc/bind/named.conf.options
 sed -i "s/dnssec-validation auto/dnssec-validation ${DNSSEC_VALIDATION}/g" /etc/bind/named.conf.options
 
 # create /var/run/named

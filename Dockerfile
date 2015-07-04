@@ -3,10 +3,10 @@ MAINTAINER erhankesken@gmail.com
 
 ENV BIND_USER=bind \
  FORWARDERS="8.8.8.8;" \
- DNSSEC_VALIDATION=auto
+ DNSSEC_VALIDATION=auto \
+ ALLOW_QUERY="any;"
 
-RUN rm -rf /etc/apt/apt.conf.d/docker-gzip-indexes \
- && apt-get update \
+RUN apt-get update \
  && apt-get install -y bind9 \
  && rm -rf /var/lib/apt/lists/*
 
